@@ -1,0 +1,81 @@
+# open app
+cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+ralt - n : brew services start yabai # Start nerd mode
+ralt + rshift - n : brew services stop yabai # Stop nerd mode
+ralt - s : open -a "Spotify"
+ralt - b : open -a "Google Chrome"
+ralt - t : open -a "TickTick"
+ralt - g : open -a "Spark"
+ralt - p : open -a "Adobe Acrobat Reader DC"
+
+# focus window
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# swap window
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# move window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+
+# balance size of windows
+shift + alt - 0 : yabai -m space --balance
+
+# destroy desktop
+cmd + alt - w : yabai -m space --destroy
+
+# fast focus desktop
+alt - x : yabai -m space --focus recent
+alt - z : yabai -m space --focus prev
+alt - c : yabai -m space --focus next
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+
+# send window to desktop
+shift + alt - 1 : yabai -m window --space  1
+shift + alt - 2 : yabai -m window --space  2
+shift + alt - 3 : yabai -m window --space  3
+
+# focus monitor
+ctrl + alt - x  : yabai -m display --focus recent
+ctrl + alt - z  : yabai -m display --focus prev
+ctrl + alt - c  : yabai -m display --focus next
+ctrl + alt - 1  : yabai -m display --focus 1
+ctrl + alt - 2  : yabai -m display --focus 2
+ctrl + alt - 3  : yabai -m display --focus 3
+
+# send window to monitor and follow focus
+ctrl + cmd - x  : yabai -m window --display recent; yabai -m display --focus recent
+ctrl + cmd - z  : yabai -m window --display prev; yabai -m display --focus prev
+ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
+ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+ctrl + cmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
+ctrl + cmd - 3  : yabai -m window --display 3; yabai -m display --focus 3
+
+# increase window size
+shift + alt - a : yabai -m window --resize left:-20:0
+shift + alt - s : yabai -m window --resize bottom:0:20
+shift + alt - w : yabai -m window --resize top:0:-20
+shift + alt - d : yabai -m window --resize right:20:0
+
+# decrease window size
+shift + cmd - a : yabai -m window --resize left:20:0
+shift + cmd - s : yabai -m window --resize bottom:0:-20
+shift + cmd - w : yabai -m window --resize top:0:20
+shift + cmd - d : yabai -m window --resize right:-20:0
+
+# toggle window native fullscreen
+shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# toggle window split type
+alt - e : yabai -m window --toggle split
+

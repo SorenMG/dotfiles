@@ -19,6 +19,9 @@ Plug 'dense-analysis/ale'
 " Shared clipboard
 "Plug 'svermeulen/vim-easyclip'
 
+" Commentation
+Plug 'scrooloose/nerdcommenter'
+
 " Retro theme
 Plug 'morhetz/gruvbox'
 
@@ -45,12 +48,12 @@ nnoremap <Leader>w :w<CR>
 " Quit file
 nnoremap <leader>q :q<cr>
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"nnoremap j gj
+"nnoremap k gk
 
 set noshowmode
 set nu
@@ -79,7 +82,7 @@ set backupdir=~/.config/undo/
 set directory=~/.config/undo/
 set undodir=~/.config/undo/
 
-inoremap jk <esc>
+"inoremap jk <esc>
 
 """"""Python""""""
 let g:python_host_prog = '/usr/local/bin/python3'

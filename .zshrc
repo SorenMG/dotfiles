@@ -28,7 +28,11 @@ export ZSH="/Users/soren/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # Plugins
-plugins=(git)
+plugins=(git
+        github
+        gitignore
+        zsh-autosuggestions
+        brew)
 
 source $ZSH/oh-my-zsh.sh
 ###
@@ -40,8 +44,8 @@ export EDITOR=nvim
 ### Aliases
 alias vi='nvim'
 alias vim='nvim'
-alias wolf='python3 ~/Desktop/py-calc/main.py'
+alias wolf='python3 ~/repos/py-calc/main.py'
 
-# Mac alias
+### Mac alias
 alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew doctor'
 ###

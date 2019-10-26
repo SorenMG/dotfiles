@@ -24,10 +24,9 @@ vim +PlugInstall
 echo 'Installed vim plugins'
 
 # Install config files in the correct dir
-mkdir -p ~/.config/skhd/ && cp .skhdrc ~/.config/skhd/
+cp .skhdrc ~
 mkdir -p ~/.config/nvim/ && cp init.vim ~/.config/nvim/
-mkdir -p ~/.config/yabai/ && cp .yabairc ~/.config/yabai/
+cp .yabairc ~
 mkdir -p ~/.config/alacritty/ && cp alacritty.yml ~/.config/alacritty/
 cp .zshrc ~
-mkdir -p ~/Library/Application\ Support/Alfred/ && cp -r Alfred.alfredpreferences
 echo 'Added configuration files'

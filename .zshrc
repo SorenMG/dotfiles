@@ -13,9 +13,14 @@ setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
 setopt HIST_IGNORE_SPACE         # Dont record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Dont write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
-setopt HIST_VERIFY               # Dont execute immediately upon history expansion.
+unsetopt HIST_VERIFY             # Dont execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 setopt NO_HUP                    # Job control for zsh
+setopt AUTO_CD                   # Disable ambigous CD 
+setopt CDABLE_VARS               # Enable filename expansion
+setopt ALWAYS_TO_END             # Move cursor to end
+setopt AUTO_LIST                 # List choices
+setopt AUTO_MENU                 # Automatically use completion after second request
 unsetopt HUP
 unsetopt CHECK_JOBS
 ###
@@ -25,16 +30,25 @@ unsetopt CHECK_JOBS
 export ZSH="/Users/soren/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="robbyrussell"
+ZSH_THEME="oxide"
 
 # Plugins
 plugins=(git
         github
         gitignore
         zsh-autosuggestions
+        kubectl
+        ng
+        npm
+        docker
         brew)
 
 source $ZSH/oh-my-zsh.sh
+###
+
+### ZSH-autosuggestion
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#d16036"
+bindkey '\e' autosuggest-execute
 ###
 
 ### Editor
@@ -42,6 +56,7 @@ export EDITOR=nvim
 ###
 
 ### Aliases
+alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias wolf='python3 ~/repos/py-calc/main.py'

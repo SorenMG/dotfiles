@@ -1,10 +1,26 @@
+# RCMD         : App select
+# Alt  h j k l : Window control keys
+# Alt  w a s d : Size keys
+
+# App select
 # open apps
 cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 ralt - s : open -a "Spotify"
-ralt - b : open -a "Google Chrome"
+ralt - b : open -a "Brave Browser"
 ralt - t : open -a "TickTick"
 ralt - g : open -a "Spark"
-ralt - p : open -a "Adobe Acrobat Reader DC"
+ralt - p : open -a "Bitwarden"
+ralt - l : hue lights 4 on
+shift + ralt - l : hue lights 4 off
+
+# For home setup
+rctrl - s : open -a "Spotify"
+rctrl - b : open -a "Brave Browser"
+rctrl - t : open -a "TickTick"
+rctrl - g : open -a "Spark"
+rctrl - p : open -a "Bitwarden"
+rctrl - l : hue lights 4 on
+rctrl + ralt - l : hue lights 4 off
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -18,6 +34,13 @@ shift + alt - j : yabai -m window --swap south
 shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
 
+# warp window
+cmd + alt - h : yabai -m window --warp west
+cmd + alt - j : yabai -m window --warp south
+cmd + alt - k : yabai -m window --warp north
+cmd + alt - l : yabai -m window --warp east
+
+# Size keys
 # increase window size
 alt - a : yabai -m window --resize left:-20:0
 alt - s : yabai -m window --resize bottom:0:20
@@ -29,6 +52,10 @@ shift + alt - a : yabai -m window --resize left:20:0
 shift + alt - s : yabai -m window --resize bottom:0:-20
 shift + alt - w : yabai -m window --resize top:0:20
 shift + alt - d : yabai -m window --resize right:-20:0
+
+# Extra
+# balance windows
+shift + alt - 0 : yabai -m space --balance
 
 # toggle window split type
 alt - x : yabai -m window --toggle split

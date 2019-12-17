@@ -1,3 +1,7 @@
+export NNN_USE_EDITOR=1
+export NNN_PLUG='o:fzopen'
+export PATH=~/.cargo/bin:$PATH
+
 ### zsh ###
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -25,42 +29,49 @@ unsetopt HUP
 unsetopt CHECK_JOBS
 ###
 
-### Oh-my-zsh
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/soren/.oh-my-zsh"
-
-# Theme
-ZSH_THEME="oxide"
-
-# Plugins
-plugins=(git
-        github
-        gitignore
-        zsh-autosuggestions
-        kubectl
-        ng
-        npm
-        docker
-        brew)
-
-source $ZSH/oh-my-zsh.sh
-###
-
-### ZSH-autosuggestion
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#d16036"
-bindkey '\e' autosuggest-execute
-###
-
 ### Editor
 export EDITOR=nvim
 ###
 
+### Bundles
+source /usr/local/share/antigen/antigen.zsh
+
+antigen bundle git
+antigen bundle fzf
+antigen bundle tmux
+antigen bundle jarun/nnn
+
+antigen theme romkatv/powerlevel10k
+
+antigen apply
+###
+
 ### Aliases
+alias ls='colorls -a'
+alias n='nnn -d -H'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias wolf='python3 ~/repos/py-calc/main.py'
 
 ### Mac alias
-alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew doctor'
+alias brewup='brew update && brew upgrade && brew cleanup; brew doctor'
 ###
+# Fix popback to vim
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+nnn -d -H

@@ -1,5 +1,5 @@
 export NNN_USE_EDITOR=1
-export NNN_PLUG='o:fzopen'
+export NNN_PLUG='g:_git log;x:_chmod +x $nnn;f:fzopen'
 export PATH=~/.cargo/bin:$PATH
 
 ### zsh ###
@@ -46,17 +46,10 @@ antigen theme romkatv/powerlevel10k
 antigen apply
 ###
 
-### Aliases
-alias ls='colorls -a'
-alias n='nnn -d -H'
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-alias wolf='python3 ~/repos/py-calc/main.py'
-
 ### Mac alias
 alias brewup='brew update && brew upgrade && brew cleanup; brew doctor'
 ###
+
 # Fix popback to vim
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -70,8 +63,42 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+nn ()
+{
+    # Block nesting of nnn in subshells
+    if [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, remove the "export" as in:
+    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # NOTE: NNN_TMPFILE is fixed, should not be modified
+    NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
+### Aliases
+alias n='nn -d -H'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-nnn -d -H
+nn -d -H

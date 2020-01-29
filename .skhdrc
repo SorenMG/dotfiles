@@ -20,7 +20,7 @@ rctrl - t : open -a "TickTick"
 rctrl - g : open -a "Spark"
 rctrl - p : open -a "Bitwarden"
 rctrl - l : hue lights 4 on
-rctrl + ralt - l : hue lights 4 off
+shift + rctrl - l : hue lights 4 off
 
 # focus window
 alt - h : yabai -m window --focus west

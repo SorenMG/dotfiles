@@ -25,6 +25,9 @@ Plug 'dense-analysis/ale'
 " Firenvim
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Shared clipboard
 "Plug 'svermeulen/vim-easyclip'
 "
@@ -67,6 +70,8 @@ nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <F6> gg=G<C-o><C-o>
 " Stop buffer from opening
 map q: :q
+" Run go file
+nnoremap <leader>r :GoRun<cr>
 
 " Learn it the hard way - disable arrowkeys
 nnoremap <up> <nop>
@@ -132,6 +137,17 @@ set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅"
 
 "let g:ale_sign_error = ''
 "let g:ale_sign_warning = ''
+
+""""""Golang""""""
+let g:go_fmt_command = 'goimports'
+let g:go_list_type = 'quickfix'
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_list_autoclose = 1
+let g:go_gocode_unimported_packages = 1 
+
+let g:deoplete#sources#go#gocode_binary = $HOME.'/go/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#source_importer = 1
 
 """"""Functions""""""
 " http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file

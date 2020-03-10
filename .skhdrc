@@ -1,15 +1,16 @@
 # RCMD         : App select
-# Alt  h j k l : Window control keys
-# Alt  w a s d : Size keys
+# Alt  h j k l : Window control keys - Removed
+# Alt  w a s d : Size keys - Removed
 
 # App select
 # open apps
-cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+cmd - return : open -a "Alacritty"
 ralt - s : open -a "Spotify"
 ralt - b : open -a "Brave Browser"
 ralt - t : open -a "TickTick"
 ralt - g : open -a "Spark"
 ralt - p : open -a "Bitwarden"
+ralt - m : open -a "Caprine"
 ralt - l : hue lights 4 on
 shift + ralt - l : hue lights 4 off
 
@@ -19,43 +20,49 @@ rctrl - b : open -a "Brave Browser"
 rctrl - t : open -a "TickTick"
 rctrl - g : open -a "Spark"
 rctrl - p : open -a "Bitwarden"
+rctrl - m : open -a "Caprine"
 rctrl - l : hue lights 4 on
 shift + rctrl - l : hue lights 4 off
 
 # focus window
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+#alt - h : yabai -m window --focus west
+#alt - j : yabai -m window --focus south
+#alt - k : yabai -m window --focus north
+#alt - l : yabai -m window --focus east
 
-# swap window
-shift + alt - h : yabai -m window --swap west
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - l : yabai -m window --swap east
+## swap window
+#shift + alt - h : yabai -m window --swap west
+#shift + alt - j : yabai -m window --swap south
+#shift + alt - k : yabai -m window --swap north
+#shift + alt - l : yabai -m window --swap east
 
-# warp window
-cmd + alt - h : yabai -m window --warp west
-cmd + alt - j : yabai -m window --warp south
-cmd + alt - k : yabai -m window --warp north
-cmd + alt - l : yabai -m window --warp east
+## warp window
+#cmd + alt - h : yabai -m window --warp west
+#cmd + alt - j : yabai -m window --warp south
+#cmd + alt - k : yabai -m window --warp north
+#cmd + alt - l : yabai -m window --warp east
 
-# Size keys
-# increase window size
-alt - a : yabai -m window --resize left:-20:0
-alt - s : yabai -m window --resize bottom:0:20
-alt - w : yabai -m window --resize top:0:-20
-alt - d : yabai -m window --resize right:20:0
+## Size keys
+## increase window size
+##alt - a : yabai -m window --resize left:-20:0
+##alt - s : yabai -m window --resize bottom:0:20
+##alt - w : yabai -m window --resize top:0:-20
+##alt - d : yabai -m window --resize right:20:0
 
-# decrease window size
-shift + alt - a : yabai -m window --resize left:20:0
-shift + alt - s : yabai -m window --resize bottom:0:-20
-shift + alt - w : yabai -m window --resize top:0:20
-shift + alt - d : yabai -m window --resize right:-20:0
+##ctrl - h : select-pane -L
+##ctrl - j : select-pane -D
+##ctrl - k : select-pane -U
+##ctrl - l : select-pane -R
 
-# Extra
-# balance windows
-shift + alt - 0 : yabai -m space --balance
+## decrease window size
+#shift + alt - a : yabai -m window --resize left:20:0
+#shift + alt - s : yabai -m window --resize bottom:0:-20
+#shift + alt - w : yabai -m window --resize top:0:20
+#shift + alt - d : yabai -m window --resize right:-20:0
 
-# toggle window split type
-alt - x : yabai -m window --toggle split
+## Extra
+## balance windows
+#alt - 0 : yabai -m space --balance
+
+## toggle window split type
+#alt - x : yabai -m window --toggle split

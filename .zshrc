@@ -1,6 +1,9 @@
-export NNN_USE_EDITOR=1
 export NNN_PLUG='g:_git log;x:_chmod +x $nnn;f:fzopen'
-export PATH=~/.cargo/bin:$PATH
+export NNN_OPENER=/usr/local/Cellar/neovim/0.4.3/bin/nvim
+export NNN_BMS="n:~/go/src/newssite;r:~/repos"
+
+# PATH
+export PATH=/usr/local/bin:user/bin:$PATH
 
 ### zsh ###
 HISTFILE="$HOME/.zsh_history"
@@ -30,7 +33,8 @@ unsetopt CHECK_JOBS
 ###
 
 ### Editor
-export EDITOR=nvim
+export EDITOR=/usr/local/Cellar/neovim/0.4.3/bin/nvim
+
 ###
 
 ### Bundles
@@ -38,8 +42,8 @@ source /usr/local/share/antigen/antigen.zsh
 
 antigen bundle git
 antigen bundle fzf
-antigen bundle tmux
 antigen bundle jarun/nnn
+antigen bundle tmux
 
 antigen theme romkatv/powerlevel10k
 
@@ -92,7 +96,7 @@ nn ()
 }
 
 ### Aliases
-alias n='nn -d -H'
+alias n='nn -d -H -c'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
@@ -100,5 +104,3 @@ alias vim='nvim'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-nn -d -H
